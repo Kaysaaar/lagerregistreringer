@@ -1,4 +1,4 @@
-const CACHE='wallmann-lager-1.0.10';const FILES=['./','./index.html','./office.html','./style.css','./app.js','./downloads.js','./activation.js','./jsQR.js','./updates.js','./config.js','./wallmann-logo.png','./manifest.json','./office-manifest.json','./warehouse-icon-180.png','./warehouse-icon-192.png','./warehouse-icon-512.png','./office-icon-180.png','./office-icon-192.png','./office-icon-512.png'];
+const CACHE='wallmann-lager-1.0.11';const FILES=['./','./index.html','./office.html','./style.css','./app.js','./downloads.js','./activation.js','./jsQR.js','./updates.js','./config.js','./wallmann-logo.png','./manifest.json','./office-manifest.json','./warehouse-icon-180.png','./warehouse-icon-192.png','./warehouse-icon-512.png','./office-icon-180.png','./office-icon-192.png','./office-icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('wallmann-lager-')&&k!==CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('message',e=>{if(e.data&&e.data.type==='ACTIVATE_UPDATE')self.skipWaiting();});
