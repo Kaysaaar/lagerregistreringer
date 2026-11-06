@@ -13,7 +13,7 @@ window.PackingScan={busy:false,open:async function({draft,scan,apply}){
  stop();const preview=dialog.querySelector('img');preview.src=data;preview.hidden=false;
  const result=await scan(data.split(',')[1]);if(request!==generation)return;
  for(const [field,value] of Object.entries({order:result.order||draft.order,customer:result.customer,city:result.city,address:result.address,count:result.count||draft.parcels.length,total:result.totalWeight??''}))form.elements[field].value=value||'';
- const missing=[!result.order&&'ordrenummer',!result.address&&'leveringsadresse',!result.count&&'antal colli',!result.totalWeight&&'totalvægt'].filter(Boolean);
+ const missing=[!result.order&&'ordrenummer',!result.address&&'leveringsadresse',!result.customer&&'leveringsmodtager',!result.city&&'by',!result.count&&'antal colli',!result.totalWeight&&'totalvægt'].filter(Boolean);
  status.textContent=missing.length?'Kunne ikke aflæse '+missing.join(', ')+'. Kontrollér og udfyld oplysningerne nedenfor.':'Kontrollér aflæsningen, og tryk Brug oplysninger.';form.hidden=false;
  }catch(e){if(request===generation)status.textContent=e.message;}finally{if(request===generation){input.disabled=false;capture.disabled=false;retry.disabled=false;}}}
  input.onchange=async()=>{const file=input.files[0];input.value='';if(!file)return;const request=generation;try{if(file.size>30000000)throw Error('Billedet er for stort. Tag et nyt billede.');if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=URL.createObjectURL(file);const img=new Image();img.src=imageUrl;await img.decode();if(request!==generation)return;await readImage(img);}catch(e){status.textContent=e.message;}};
