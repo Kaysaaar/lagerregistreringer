@@ -38,3 +38,5 @@ body[data-role=warehouse] main{margin-top:22px}
 #manualDelivery{display:block;width:auto;min-height:44px;margin:0;padding:8px 2px;background:transparent;border:0;border-radius:4px;font-size:13px;font-weight:400;color:#526b5f;text-align:left;text-decoration:underline;text-underline-offset:3px}
 #deliveryInfo .delivery-details{margin:10px 0 0}
 #packing>.muted{margin:0 0 18px}
+
+.update-controls{text-align:center;padding:0 18px 20px}.update-check{background:transparent;border:0;font-size:13px;font-weight:400;text-decoration:underline;min-height:44px}.update-check-status{font-size:13px;margin:0 auto;max-width:640px}.update-check-status:empty{display:none}

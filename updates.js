@@ -24,17 +24,37 @@
  // Other open tabs keep their current page. Only the tab that requested an
  // update reloads, after its draft has been committed to local storage.
  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(requested)location.reload();});
+ const checker=document.createElement('button');
+ checker.type='button';checker.className='update-check';checker.textContent='Søg efter opdatering';
+ const checkStatus=document.createElement('p');checkStatus.className='update-check-status';checkStatus.setAttribute('role','status');
+ const controls=document.createElement('div');controls.className='update-controls';controls.append(checker,checkStatus);document.body.append(controls);
+ checker.disabled=true;
  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(r=>{
-  registration=r;show();
-  r.addEventListener('updatefound',()=>{
+  registration=r;checker.disabled=false;show();
+  const watch=()=>{
    const worker=r.installing;
-   if(worker)worker.addEventListener('statechange',()=>{if(worker.state==='installed')show();});
-  });
-  const check=()=>{
-   if(document.hidden||!navigator.onLine||Date.now()-lastCheck<300000)return;
-   lastCheck=Date.now();r.update().catch(()=>{});show();
+   if(worker)worker.addEventListener('statechange',()=>{
+    if(worker.state==='installed'){show();if(r.waiting)checkStatus.textContent='Opdatering klar – brug den grønne opdateringsknap.';}
+    if(worker.state==='redundant')checkStatus.textContent='Opdateringen kunne ikke hentes. Prøv igen med internetforbindelse.';
+   });
   };
-  document.addEventListener('visibilitychange',check);
-  window.addEventListener('online',check);setInterval(check,300000);check();
- }).catch(()=>{});
+  r.addEventListener('updatefound',watch);watch();
+  const check=async(force=false)=>{
+   if(document.hidden)return;
+   if(!navigator.onLine){if(force)checkStatus.textContent='Ingen internetforbindelse. Prøv igen, når du er online.';return;}
+   if(!force&&Date.now()-lastCheck<30000)return;
+   lastCheck=Date.now();
+   if(force){checker.disabled=true;checkStatus.textContent='Søger efter opdatering…';}
+   try{
+    await r.update();show();
+    if(force)checkStatus.textContent=r.waiting?'Opdatering klar – brug den grønne opdateringsknap.':r.installing?'Henter opdateringen…':'Ingen ny opdatering fundet lige nu.';
+   }catch(e){if(force)checkStatus.textContent='Kunne ikke søge efter opdatering. Kontrollér internetforbindelsen og prøv igen.';}
+   finally{checker.disabled=false;}
+  };
+  checker.onclick=()=>check(true);
+  document.addEventListener('visibilitychange',()=>check());
+  window.addEventListener('focus',()=>check());
+  window.addEventListener('pageshow',()=>check());
+  window.addEventListener('online',()=>check(true));setInterval(()=>check(),60000);check();
+ }).catch(()=>{checkStatus.textContent='Appens opdateringskontrol kunne ikke starte. Luk appen helt og åbn den igen.';});
 })();

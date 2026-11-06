@@ -1,5 +1,5 @@
-const CACHE='wallmann-lager-1.0.14';const FILES=['./','./index.html','./office.html','./style.css','./app.js','./packing-data.js','./packing-scan.js','./downloads.js','./activation.js','./jsQR.js','./updates.js','./config.js','./wallmann-logo.png','./manifest.json','./office-manifest.json','./warehouse-icon-180.png','./warehouse-icon-192.png','./warehouse-icon-512.png','./office-icon-180.png','./office-icon-192.png','./office-icon-512.png'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
+const CACHE='wallmann-lager-1.0.15';const FILES=['./','./index.html','./office.html','./style.css','./app.js','./packing-data.js','./packing-scan.js','./downloads.js','./activation.js','./jsQR.js','./updates.js','./config.js','./wallmann-logo.png','./manifest.json','./office-manifest.json','./warehouse-icon-180.png','./warehouse-icon-192.png','./warehouse-icon-512.png','./office-icon-180.png','./office-icon-192.png','./office-icon-512.png'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES.map(file=>new Request(file,{cache:'reload'}))))));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('wallmann-lager-')&&k!==CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('message',e=>{if(e.data&&e.data.type==='ACTIVATE_UPDATE')self.skipWaiting();});
 // Serve one complete release, rather than mixing new HTML with old scripts.
