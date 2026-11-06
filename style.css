@@ -40,3 +40,5 @@ body[data-role=warehouse] main{margin-top:22px}
 #packing>.muted{margin:0 0 18px}
 
 .update-controls{text-align:center;padding:0 18px 20px}.update-check{background:transparent;border:0;font-size:13px;font-weight:400;text-decoration:underline;min-height:44px}.update-check-status{font-size:13px;margin:0 auto;max-width:640px}.update-check-status:empty{display:none}
+
+.delivery-overview{display:flex;flex-direction:column;gap:4px;margin-top:12px;padding:12px 14px;background:#eaf0e3;border-radius:10px;overflow-wrap:anywhere}.delivery-overview strong{font-size:15px}.delivery-overview span{font-size:14px;color:#526b5f}#deliveryInfo .delivery-overview+.delivery-details{margin-top:6px;padding:4px 14px;background:transparent;border:0}.delivery-overview+.delivery-details summary{font-size:13px;font-weight:400}#cameraOrder{font-size:15px;line-height:1.4;color:#e1eae4;margin:12px 0 0;overflow-wrap:anywhere}.measurement-warning{font-size:13px;line-height:1.5;margin:14px 0 0;padding:10px 12px;background:#fff5df;color:#77521a;border-radius:8px}
