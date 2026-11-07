@@ -59,3 +59,5 @@ body[data-role=warehouse] main{margin-top:22px}
 .report-dragging,.report-dragging *{user-select:none!important;cursor:crosshair!important}
 
 .report-selecting .order-chevron{visibility:hidden}.report-selecting .order-summary{cursor:pointer}
+
+.report-pdf-actions{display:flex;align-items:center;gap:20px}.report-paper table{table-layout:fixed}.report-paper th:nth-child(1){width:13%}.report-paper th:nth-child(2){width:23%}.report-paper th:nth-child(3){width:34%}.report-paper th:nth-child(4){width:7%}.report-paper th:nth-child(5){width:23%}.report-paper td{overflow-wrap:anywhere}#dispatchReport{max-width:1120px}
