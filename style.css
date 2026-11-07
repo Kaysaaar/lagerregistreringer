@@ -55,3 +55,5 @@ body[data-role=warehouse] main{margin-top:22px}
 @media print{body:has(#dispatchReport[open])>*:not(#dispatchReport){display:none!important}#dispatchReport[open]{display:block!important;position:static;inset:auto;width:auto;max-width:none;height:auto;max-height:none;overflow:visible;border:0;padding:0;margin:0;box-shadow:none}#dispatchReport::backdrop{display:none}.report-controls{display:none!important}.report-paper{color:#000}.report-paper table{font-size:11pt}.report-paper tr{break-inside:avoid}.report-paper thead{display:table-header-group}.report-paper h1{font-size:20pt}}
 
 .office-tools .report-actions{margin:0;padding-left:12px;border-left:1px solid #cad6cb}.office-tools>.actions{flex-wrap:wrap;justify-content:flex-end}.report-actions #reportCount{font-size:.85rem;color:#526c5f}@media(max-width:640px){.office-tools .report-actions{padding-left:0;border-left:0}}
+
+.report-dragging,.report-dragging *{user-select:none!important;cursor:crosshair!important}
