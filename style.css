@@ -57,3 +57,5 @@ body[data-role=warehouse] main{margin-top:22px}
 .office-tools .report-actions{margin:0;padding-left:12px;border-left:1px solid #cad6cb}.office-tools>.actions{flex-wrap:wrap;justify-content:flex-end}.report-actions #reportCount{font-size:.85rem;color:#526c5f}@media(max-width:640px){.office-tools .report-actions{padding-left:0;border-left:0}}
 
 .report-dragging,.report-dragging *{user-select:none!important;cursor:crosshair!important}
+
+.report-selecting .order-chevron{visibility:hidden}.report-selecting .order-summary{cursor:pointer}
