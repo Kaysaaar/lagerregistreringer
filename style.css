@@ -61,3 +61,15 @@ body[data-role=warehouse] main{margin-top:22px}
 .report-selecting .order-chevron{visibility:hidden}.report-selecting .order-summary{cursor:pointer}
 
 .report-pdf-actions{display:flex;align-items:center;gap:20px}.report-paper table{table-layout:fixed}.report-paper th:nth-child(1){width:13%}.report-paper th:nth-child(2){width:23%}.report-paper th:nth-child(3){width:34%}.report-paper th:nth-child(4){width:7%}.report-paper th:nth-child(5){width:23%}.report-paper td{overflow-wrap:anywhere}#dispatchReport{max-width:1120px}
+
+/* Compact date control; preserve 17px input text to avoid iPhone focus zoom. */
+#deliveryInfo{margin-top:22px}
+#deliveryInfo>label{font-size:14px;margin-bottom:12px;max-width:230px}
+#deliveryDay{display:block;width:100%;min-width:0;max-width:100%;height:46px;min-height:46px;padding:9px 12px;margin-top:6px;-webkit-appearance:none;appearance:none}
+#deliveryDay::-webkit-date-and-time-value{text-align:left;min-height:1.2em}
+/* Keep modal controls below the iOS status/Dynamic Island area. */
+@media(max-width:700px){
+ #camera,#viewer,.delivery-scan{position:fixed;top:calc(env(safe-area-inset-top,0px) + 20px);bottom:auto;margin:0 auto;max-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 40px);overflow-y:auto;overscroll-behavior:contain}
+ #camera .camera-head{position:sticky;top:-16px;z-index:3;background:#112f25;margin:-16px -16px 0;padding:16px;border-bottom:1px solid #476456}
+ #camera .camera-head button{background:#f4f5f0;color:#173e33;border-color:#f4f5f0}
+}
