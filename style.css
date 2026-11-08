@@ -81,3 +81,5 @@ body[data-role=warehouse] main{margin-top:22px}
 .label-scan .scan-preview{display:block;max-width:100%;max-height:45dvh;margin:0 auto 16px;object-fit:contain}
 
 .capture-step{margin-top:16px}.capture-step .caption:empty{display:none}.capture-step #previewPhotos{margin-top:8px}
+
+.order-date-row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:12px;margin-top:20px}.order-date-row>label,.order-date-row>div,.order-date-row label{min-width:0;margin:0}.order-date-row label{font-size:14px}.order-date-row input,.order-date-row #deliveryDay{box-sizing:border-box;width:100%;min-width:0;max-width:100%;height:48px;min-height:48px;margin-top:6px;padding:10px;font-size:17px}.order-date-row #order::placeholder{font-size:14px}#deliveryInfo{margin-top:16px}
