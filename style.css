@@ -76,10 +76,15 @@ body[data-role=warehouse] main{margin-top:22px}
 .delivery-scan input[type=date]{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:230px;height:46px;min-height:46px;padding:9px 12px;-webkit-appearance:none;appearance:none}
 .delivery-scan input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.2em}
 
-/* Portrait truck labels; contain shows the complete camera frame without cropping. */
-.label-scan .scan-video{display:block;width:min(100%,30dvh);height:45dvh;max-height:45dvh;aspect-ratio:2/3;object-fit:contain;margin:14px auto;border:2px solid #a7bca5;border-radius:12px}
-.label-scan .scan-preview{display:block;max-width:100%;max-height:45dvh;margin:0 auto 16px;object-fit:contain}
+/* Portrait label preview; capture uses the same centered crop as object-fit: cover. */
+.label-scan .scan-video:not([hidden]){display:block;width:min(100%,40dvh);height:auto;max-height:60dvh;aspect-ratio:2/3;object-fit:cover;object-position:center;margin:14px auto;border:2px solid #a7bca5;border-radius:12px}
+.label-scan .scan-preview:not([hidden]){display:block;max-width:100%;max-height:45dvh;margin:0 auto 16px;object-fit:contain}
 
 .capture-step{margin-top:16px}.capture-step .caption:empty{display:none}.capture-step #previewPhotos{margin-top:8px}
 
 .order-date-row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:12px;margin-top:20px}.order-date-row>label,.order-date-row>div,.order-date-row label{min-width:0;margin:0}.order-date-row label{font-size:14px}.order-date-row input,.order-date-row #deliveryDay{box-sizing:border-box;width:100%;min-width:0;max-width:100%;height:48px;min-height:48px;margin-top:6px;padding:10px;font-size:17px}.order-date-row #order::placeholder{font-size:14px}#deliveryInfo{margin-top:16px}
+
+.order-date-row{grid-template-columns:minmax(0,1.05fr) minmax(0,1.2fr) minmax(0,.75fr);gap:8px}.order-date-row label{font-size:13px;white-space:nowrap}.order-date-row input,.order-date-row #deliveryDay,.order-date-row select{box-sizing:border-box;width:100%;min-width:0;max-width:100%;height:48px;min-height:48px;margin-top:6px;padding:9px 8px;font-size:17px}
+.order-date-row>label,.order-date-row>div{position:relative}.order-date-row>:not(:first-child)::before{content:'';position:absolute;left:-5px;top:25px;bottom:8px;width:1px;background:#cdd8d0;pointer-events:none}
+
+.order-date-row input,.order-date-row select{display:block}
