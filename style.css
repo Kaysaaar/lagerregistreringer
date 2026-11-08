@@ -88,3 +88,22 @@ body[data-role=warehouse] main{margin-top:22px}
 .order-date-row>label,.order-date-row>div{position:relative}.order-date-row>:not(:first-child)::before{content:'';position:absolute;left:-5px;top:25px;bottom:8px;width:1px;background:#cdd8d0;pointer-events:none}
 
 .order-date-row input,.order-date-row select{display:block}
+
+/* Shared office appearance with Wallmann order search. Warehouse form is unchanged. */
+body[data-role=office]{--green:#204d3b;background:#f3f5ef}
+body[data-role=office] header{background:#183e32;height:calc(72px + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(2vw,calc((100vw - 2400px)/2)) 0;gap:24px}
+body[data-role=office] header img{display:block;width:clamp(158px,11vw,220px);max-width:55vw}
+body[data-role=office] header .logo-home{min-height:0;height:auto}
+body[data-role=office] main{width:96%;max-width:2400px;padding:24px 0 0;margin:0 auto}
+body[data-role=office] .office-search{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#e8efdf;border-color:#d7e1ca;border-radius:12px;padding:14px 16px;width:520px;max-width:100%;flex-shrink:0}
+body[data-role=office] .office-search label{font-size:15px;font-weight:700;margin:0 0 8px}
+body[data-role=office] .search-line{align-items:center;background:white;border:1px solid #c5d2be;border-radius:11px;padding:5px;gap:8px}
+body[data-role=office] .search-line::before{content:'\2315';font-size:22px;color:#6b815e;padding-left:8px}
+body[data-role=office] .search-line input{font-size:21px;line-height:normal;min-height:0;padding:6px 0;border:0;outline:none;background:transparent;color:#173e33}
+body[data-role=office] .search-line input::placeholder{font-size:16px;color:#8c9985;opacity:1}
+body[data-role=office] .search-line:focus-within{outline:2px solid #5d8141;outline-offset:2px}
+body[data-role=office] .search-line button{display:inline-flex;align-items:center;justify-content:center;gap:12px;flex:none;min-height:0;padding:10px 14px;border:0;border-radius:8px;font-size:13px;font-weight:650;white-space:nowrap;background:#204d3b;color:white}
+body[data-role=office] .search-line button::after{content:'\2192'}
+@media(max-width:900px){body[data-role=office] .office-tools{align-items:stretch;flex-direction:column;gap:12px}body[data-role=office] .office-tools>.actions{justify-content:flex-end}}
+@media(max-width:600px){body[data-role=office] .office-search{width:100%;max-width:none}}
+@media(max-width:480px){body[data-role=office] main{width:auto;margin:0 14px}body[data-role=office] header img{width:140px}}
