@@ -73,3 +73,5 @@ body[data-role=warehouse] main{margin-top:22px}
  #camera .camera-head{position:sticky;top:-16px;z-index:3;background:#112f25;margin:-16px -16px 0;padding:16px;border-bottom:1px solid #476456}
  #camera .camera-head button{background:#f4f5f0;color:#173e33;border-color:#f4f5f0}
 }
+.delivery-scan input[type=date]{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:230px;height:46px;min-height:46px;padding:9px 12px;-webkit-appearance:none;appearance:none}
+.delivery-scan input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.2em}
