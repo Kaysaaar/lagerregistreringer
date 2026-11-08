@@ -75,3 +75,7 @@ body[data-role=warehouse] main{margin-top:22px}
 }
 .delivery-scan input[type=date]{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:230px;height:46px;min-height:46px;padding:9px 12px;-webkit-appearance:none;appearance:none}
 .delivery-scan input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.2em}
+
+/* Portrait truck labels; contain shows the complete camera frame without cropping. */
+.label-scan .scan-video{display:block;width:min(100%,30dvh);height:45dvh;max-height:45dvh;aspect-ratio:2/3;object-fit:contain;margin:14px auto;border:2px solid #a7bca5;border-radius:12px}
+.label-scan .scan-preview{display:block;max-width:100%;max-height:45dvh;margin:0 auto 16px;object-fit:contain}
