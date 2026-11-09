@@ -117,9 +117,10 @@ body[data-role=office] .search-line button::after{content:'\2192'}
 
 /* Keep office actions accessible while inspecting and selecting long lists. */
 body[data-role=office] .office-tools{position:sticky;top:0;z-index:100;background:#f3f5ef;padding:12px 0;border-bottom:1px solid #dce3d9;box-shadow:0 8px 12px -12px #173e3366}
-.order-label-line{display:flex;align-items:center;justify-content:space-between;min-height:20px}.order-label-line #addOrder{min-height:28px;height:28px;width:28px;min-width:28px;padding:0;margin:-4px 0;border-radius:7px;background:#e8efdf;font-size:20px;line-height:1;font-weight:400}.extra-order{display:flex;align-items:flex-end;gap:8px;margin:10px 0}.extra-order label{margin:0;max-width:160px;min-width:0;font-size:13px}.extra-order input{font-size:17px}.extra-order button{padding:8px 12px;min-height:48px}.extra-order [data-extra-remove]{border:0;background:transparent;font-size:22px}#extraOrders>.caption{margin:14px 0 8px}
+.order-label-line{display:flex;align-items:center;justify-content:flex-start;gap:5px;min-height:20px}.order-label-line #addOrder{min-height:28px;height:28px;width:28px;min-width:28px;padding:0;margin:-4px 0;border-radius:7px;background:#e8efdf;font-size:20px;line-height:1;font-weight:400}.extra-order{display:flex;align-items:flex-end;gap:8px;margin:10px 0}.extra-order label{margin:0;max-width:160px;min-width:0;font-size:13px}.extra-order input{font-size:17px}.extra-order button{padding:8px 12px;min-height:48px}.extra-order [data-extra-remove]{border:0;background:transparent;font-size:22px}#extraOrders>.caption{margin:14px 0 8px}
 @media(max-width:600px){body[data-role=office] .office-tools{gap:8px}body[data-role=office] .office-tools>.actions{gap:6px;justify-content:flex-start}body[data-role=office] .office-tools button{min-height:40px;padding:8px 10px}body[data-role=office] .office-tools .report-actions{gap:6px}}
 
 .order-summary .booking-controls{border:0;padding:0;margin:2px 0 0;min-height:0;display:flex;flex-direction:column;align-items:flex-start;gap:5px}.booking-toggle.booked{color:#204c3b;background:#e6f1df;border-color:#b8d1b2}.order-summary .booking-controls .booking-toggle{white-space:nowrap;min-height:36px;padding:7px 11px;font-size:13px}
 
 #unbooked[aria-pressed="true"]{background:#204c3c;color:white;border-color:#204c3c}
+
