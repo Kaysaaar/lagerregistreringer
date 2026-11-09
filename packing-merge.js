@@ -1,0 +1,18 @@
+(function(root){
+'use strict';
+root.PackingMerge={open(records,rpc,done){
+ const dialog=document.createElement('dialog');dialog.className='merge-dialog';
+ dialog.innerHTML='<form><h2>🔗 Saml til én fælles pakning</h2><p class="merge-orders"></p><p>Colli lægges ikke automatisk sammen. Kontrollér det fælles antal, mål og vægt. Alle billeder følger med.</p><label>Brug kunde, adresse og leveringsdag fra<select name="base"></select></label><p class="merge-address"></p><label>Fælles antal colli<input name="count" type="number" min="1" max="30" required></label><div class="merge-parcels"></div><label class="merge-confirm"><input name="confirm" type="checkbox" required> Jeg har kontrolleret fælles leveringsadresse, dato og colli.</label><p class="merge-error" role="alert"></p><div class="actions"><button type="button" class="cancel">Annullér</button><button class="primary">Saml pakning</button></div></form>';
+ const form=dialog.querySelector('form'),base=form.elements.base,count=form.elements.count,fields=dialog.querySelector('.merge-parcels'),err=dialog.querySelector('.merge-error');
+ dialog.querySelector('.merge-orders').textContent=[...new Set(records.flatMap(r=>r.orders||[r.order]))].join(' + ');
+ records.forEach(r=>{const option=document.createElement('option');option.value=r.id;option.textContent=(r.orders||[r.order]).join(' + ')+' · '+(r.delivery?.customer||'Kunde mangler');base.append(option);});
+ let parcels=[];const selected=()=>records.find(r=>r.id===base.value);
+ const read=()=>{fields.querySelectorAll('[data-parcel]').forEach((row,i)=>{for(const k of ['length','width','height','weight']){const input=row.querySelector('[name="'+k+'"]');if(input)parcels[i][k]=input.value===''?null:Number(input.value);}});};
+ const draw=()=>{fields.replaceChildren();parcels.forEach((p,i)=>{const row=document.createElement('fieldset'),legend=document.createElement('legend');row.dataset.parcel=i;legend.textContent='Colli '+(i+1);row.append(legend);if(!selected().carrier?.simple){[['length','Længde · cm'],['width','Bredde · cm'],['height','Højde · cm'],['weight','Vægt · kg']].forEach(([k,title])=>{const label=document.createElement('label'),input=document.createElement('input');label.textContent=title;input.name=k;input.type='number';input.min='0.01';input.max=k==='weight'?'30000':'3000';input.step='0.01';input.value=p[k]??'';label.append(input);row.append(label);});}fields.append(row);});};
+ base.onchange=()=>{const r=selected();parcels=r.parcels.map(p=>({...p}));count.value=parcels.length;dialog.querySelector('.merge-address').textContent=[r.delivery?.customer,r.delivery?.address,r.delivery?.deliveryDate||'Leveringsdag mangler'].filter(Boolean).join(' · ');form.elements.confirm.checked=false;draw();};
+ count.onchange=()=>{read();const n=Number(count.value);if(!Number.isInteger(n)||n<1||n>30)return;parcels=Array.from({length:n},(_,i)=>parcels[i]||{length:null,width:null,height:null,weight:null});draw();};
+ const close=()=>{dialog.close();dialog.remove();};dialog.querySelector('.cancel').onclick=close;dialog.addEventListener('cancel',()=>dialog.remove());
+ const mutation=crypto.randomUUID();form.onsubmit=async e=>{e.preventDefault();read();const button=form.querySelector('button.primary');button.disabled=true;button.textContent='Samler pakning…';err.textContent='';try{await rpc('merge',{mutation,baseId:base.value,sources:records.map(r=>({id:r.id,revision:r.revision})),parcels,delivery:selected().delivery});close();done();}catch(error){err.textContent=error.message;button.disabled=false;button.textContent='Saml pakning';}};
+ document.body.append(dialog);base.onchange();dialog.showModal();
+}};
+})(window);

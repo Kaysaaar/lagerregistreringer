@@ -5,7 +5,7 @@ window.PackingScan={busy:false,cameraCrop(width,height,ratio){
 },reviewMessage(result,{mode="delivery",simple=false}={}){
  const missing=[!result.deliveryDate&&'leveringsdag',!result.order&&'ordrenummer',!result.address&&'leveringsadresse',!result.customer&&(mode==='label'?'kunde / butik':'leveringsmodtager'),!result.city&&'by',!result.count&&'antal colli'].filter(Boolean);
  const message=missing.length?'Kunne ikke aflæse '+missing.join(', ')+'. Kontrollér oplysningerne nedenfor.':'Kontrollér aflæsningen, og tryk Brug oplysninger.';
- return message+(mode!=='label'&&!simple&&!result.totalWeight?' Totalvægt blev ikke aflæst. Vægt er valgfri.':'');
+ return (result.addressSource==='customer'?'Leveringsadresse mangler. Kundeadressen er brugt som forslag. ':'')+message+(mode!=='label'&&!simple&&!result.totalWeight?' Totalvægt blev ikke aflæst. Vægt er valgfri.':'');
 },open:async function({draft,scan,apply,mode="delivery",simple=false}){
  if(this.busy)return;this.busy=true;const labelMode=mode==='label',useWeight=!labelMode&&!simple,title=labelMode?'Scan label':'Scan følgeseddel';
  const dialog=document.createElement('dialog');dialog.className='delivery-scan'+(labelMode?' label-scan':'');
