@@ -202,3 +202,12 @@ body[data-role=office] .office-tools{position:sticky;top:0;z-index:100;backgroun
 .form-card #extraOrders:empty{display:none}
 .form-card #addOrder{margin-top:-4px}
 .parcel-card .fields .unit{top:auto;bottom:18px;transform:none}
+/* Kontor-notifikationer (1.2.0) */
+.notify-button{display:inline-flex;align-items:center;gap:8px;border-color:#8ba474;color:#204c3b;font-weight:700}.notify-button.on{background:#204c3b;border-color:#204c3b;color:#fff}
+.notify-dialog{width:min(520px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto;border:1px solid #cdd8cc;border-radius:16px;padding:24px;color:#173e33;background:#fff}.notify-dialog::backdrop{background:#173e3359}
+.notify-dialog h2{margin:0 0 4px;font-size:1.3rem}.notify-dialog .muted{color:#4f6258;font-size:15px;line-height:1.5}.notify-head{margin-bottom:12px}
+.notify-types{border:0;padding:0;margin:16px 0 8px}.notify-types legend{font-weight:700;font-size:15px;margin-bottom:8px}
+.notify-type{display:flex;align-items:center;gap:10px;min-height:44px;font-size:16px;border-top:1px solid #edf0e9}.notify-type input{width:22px;height:22px;accent-color:#204c3b;flex-shrink:0}.notify-type small{font-size:13px}
+.notify-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.notify-status{min-height:20px;font-size:14px;color:#4f6258;margin:12px 0 0}
+.notify-blocked{background:#fff0ec;border:1px solid #e3b9ae;border-radius:12px;padding:14px 16px;color:#5c2a20;margin:8px 0}.notify-blocked strong{color:#943b2d}.notify-blocked ol{margin:6px 0;padding-left:20px}
+.notify-flash{box-shadow:0 0 0 4px #8ba474;transition:box-shadow .6s}
