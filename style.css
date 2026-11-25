@@ -211,3 +211,4 @@ body[data-role=office] .office-tools{position:sticky;top:0;z-index:100;backgroun
 .notify-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.notify-status{min-height:20px;font-size:14px;color:#4f6258;margin:12px 0 0}
 .notify-blocked{background:#fff0ec;border:1px solid #e3b9ae;border-radius:12px;padding:14px 16px;color:#5c2a20;margin:8px 0}.notify-blocked strong{color:#943b2d}.notify-blocked ol{margin:6px 0;padding-left:20px}
 .notify-flash{box-shadow:0 0 0 4px #8ba474;transition:box-shadow .6s}
+.notify-button small{font-size:12px;font-weight:700;padding:2px 8px;border-radius:20px;background:#f5d59a;color:#3b2c0c}.notify-button.needs-click{box-shadow:0 0 0 3px #f5d59a}
