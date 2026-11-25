@@ -329,3 +329,4 @@ body[data-role=office] .office-empty button{margin-top:8px;min-height:0;height:3
 body[data-role=office] .empty-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#e1eedd;color:#1f5130}
 body[data-role=office] #more{min-height:0;height:42px;margin-top:12px;border:1px solid var(--o-line);border-radius:10px;background:#fff;color:#204c3b;font-weight:600}
 body[data-role=office] .office-live-update{border-radius:10px;font-weight:600}
+body[data-role=office] .older-note{margin:-2px 0 10px;padding:8px 12px;border-radius:9px;background:#eaf0e3;color:#3c5247;font-size:13px}
