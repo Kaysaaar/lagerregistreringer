@@ -212,3 +212,120 @@ body[data-role=office] .office-tools{position:sticky;top:0;z-index:100;backgroun
 .notify-blocked{background:#fff0ec;border:1px solid #e3b9ae;border-radius:12px;padding:14px 16px;color:#5c2a20;margin:8px 0}.notify-blocked strong{color:#943b2d}.notify-blocked ol{margin:6px 0;padding-left:20px}
 .notify-flash{box-shadow:0 0 0 4px #8ba474;transition:box-shadow .6s}
 .notify-button small{font-size:12px;font-weight:700;padding:2px 8px;border-radius:20px;background:#f5d59a;color:#3b2c0c}.notify-button.needs-click{box-shadow:0 0 0 3px #f5d59a}
+/* ===== Ny kontorside (1.3.0): topbjælke, værktøjslinje og tæt ordreliste. Kun body[data-role=office]. ===== */
+body[data-role=office]{--o-ink:#173e33;--o-muted:#56685e;--o-line:#dde4da;--o-line-soft:#eef1eb;--o-cols:88px 150px minmax(200px,1fr) 56px 190px 110px 250px 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;background:#f4f5f0;color:var(--o-ink)}
+body[data-role=office] button,body[data-role=office] input{font-family:inherit}
+body[data-role=office] .num{font-variant-numeric:tabular-nums}
+body[data-role=office] .muted{color:var(--o-muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Topbjælke */
+body[data-role=office] header.office-header{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:12px 20px;height:auto;min-height:64px;padding:calc(10px + env(safe-area-inset-top)) max(24px,calc((100vw - 1600px)/2)) 10px;background:#183f31}
+body[data-role=office] header.office-header img{width:150px}
+body[data-role=office] .app-name{color:#e8f0e6;font-size:15px;font-weight:600;padding-left:16px;border-left:1px solid #e8f0e64d;white-space:nowrap}
+body[data-role=office] header .office-search{flex:1 1 320px;max-width:560px;width:auto;display:flex;align-items:center;gap:8px;height:42px;margin:0;padding:0 5px 0 12px;background:#ffffff1a;border:1px solid #e8f0e633;border-radius:10px;color:#e8f0e6}
+body[data-role=office] header .office-search:focus-within{outline:2px solid #d1e3b7;outline-offset:1px}
+body[data-role=office] header .office-search input{flex:1;min-width:0;min-height:0;height:38px;margin:0;padding:0;border:0;background:transparent;color:#fff;font-size:15px;outline:none}
+body[data-role=office] header .office-search input::placeholder{color:#e8f0e6b3;font-size:15px}
+body[data-role=office] header .search-submit{min-height:0;height:32px;padding:0 12px;border:0;border-radius:7px;background:#d1e3b7;color:#183f31;font-size:13px;font-weight:700}
+body[data-role=office] .header-end{margin-left:auto;display:flex;align-items:center;gap:10px}
+body[data-role=office] .header-notify{display:contents}
+body[data-role=office] .device-badge{display:inline-flex;align-items:center;height:34px;padding:0 12px;border-radius:17px;background:#d1e3b7;color:#183f31;font-size:13px;font-weight:700;white-space:nowrap}
+body[data-role=office] header .notify-button{min-height:0;height:38px;padding:0 12px;background:transparent;border:1px solid #e8f0e64d;color:#e8f0e6;font-size:14px;font-weight:600;border-radius:10px}
+body[data-role=office] header .notify-button.on{background:#d1e3b72e;border-color:#d1e3b7;color:#fff}
+body[data-role=office] header .notify-button:hover{background:#ffffff1f}
+/* Værktøjslinje */
+body[data-role=office] main{width:auto;max-width:1600px;margin:0 auto;padding:0 max(24px,calc((100vw - 1600px)/2)) 96px;box-sizing:border-box}
+body[data-role=office] .office-tools{display:block;padding:12px 0;background:#f4f5f0;border-bottom:1px solid var(--o-line);box-shadow:none}
+body[data-role=office] .office-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+body[data-role=office] .view-toggle{display:inline-flex;padding:3px;border-radius:10px;background:#e6ebe2}
+body[data-role=office] .view-toggle button{min-height:0;height:34px;padding:0 14px;border:0;border-radius:8px;background:transparent;color:var(--o-ink);font-size:14px;font-weight:600}
+body[data-role=office] .view-toggle button[aria-pressed=true]{background:#fff;box-shadow:0 1px 2px #173e332e}
+body[data-role=office] .order-type-filters{margin:0;gap:2px}
+body[data-role=office] .order-type-filters button{min-height:0;height:36px;padding:0 12px;border:0;border-bottom:2px solid transparent;border-radius:6px 6px 0 0;background:transparent;color:#3c5247;font-size:14px;font-weight:500}
+body[data-role=office] .order-type-filters button:hover{background:#e9eee5}
+body[data-role=office] .order-type-filters button[aria-pressed=true]{background:transparent;color:var(--o-ink);font-weight:700;border-bottom-color:#204c3b}
+body[data-role=office] .tab-count{margin-left:3px;color:var(--o-muted);font-weight:500;font-variant-numeric:tabular-nums}
+body[data-role=office] .office-live-health{margin:0 0 0 auto;min-height:0;display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--o-muted)}
+body[data-role=office] .office-live-health:empty{display:none}
+body[data-role=office] .office-live-health::before{content:'';width:8px;height:8px;border-radius:50%;background:#3f9a5c}
+body[data-role=office] .office-live-health.offline::before{background:#c47f1a}
+body[data-role=office] .toolbar-end{display:flex;align-items:center;gap:8px}
+body[data-role=office] .icon-button{display:grid;place-items:center;width:38px;height:38px;min-height:0;padding:0;border:1px solid #d3dccf;border-radius:9px;background:#fff;color:#204c3b}
+body[data-role=office] #selectOrders{min-height:0;height:38px;padding:0 14px;border:1px solid #d3dccf;border-radius:9px;background:#fff;color:#204c3b;font-size:14px;font-weight:600}
+body[data-role=office] #selectOrders[aria-pressed=true]{background:#204c3b;border-color:#204c3b;color:#fff}
+body[data-role=office] .results-heading{margin:18px 0 10px;align-items:baseline}
+body[data-role=office] .results-heading h1{font-size:18px;font-weight:700}
+body[data-role=office] .results-heading p{font-size:13px;color:var(--o-muted)}
+/* Ordreliste */
+body[data-role=office] .order-list{border:1px solid var(--o-line);border-radius:14px;background:#fff;overflow-x:auto}
+body[data-role=office] .order-columns,body[data-role=office] .order-list .office-grid{min-width:1120px}
+body[data-role=office] .order-columns{display:grid;grid-template-columns:var(--o-cols);gap:0 16px;padding:10px 20px;border-bottom:1px solid var(--o-line);background:#fafbf8;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--o-muted)}
+body[data-role=office] .order-columns .right{text-align:right}
+body.selecting-orders .order-columns{padding-left:44px}
+body[data-role=office] .office-grid{display:block}
+body[data-role=office] .packing-day{display:block}
+body[data-role=office] .packing-date{display:flex;align-items:center;gap:10px;margin:0;padding:14px 20px 8px;border-bottom:1px solid var(--o-line-soft);font-size:14px;font-weight:700;color:var(--o-ink)}
+body[data-role=office] .packing-count{min-width:22px;height:20px;padding:0 7px;border-radius:10px;background:#eef2ea;color:var(--o-muted);font-size:12px;font-weight:600;display:inline-grid;place-items:center;font-variant-numeric:tabular-nums}
+body[data-role=office] .office-grid>.order,body[data-role=office] .packing-day>.order{margin:0}
+body[data-role=office] .order.card{margin:0;border:0;border-bottom:1px solid var(--o-line-soft);border-radius:0;box-shadow:none;background:#fff;overflow:visible}
+body[data-role=office] .order-summary,body[data-role=office] .report-selecting .order-summary{display:grid;grid-template-columns:var(--o-cols);gap:0 16px;align-items:center;min-height:60px;padding:8px 20px;font-weight:400}
+body[data-role=office] .report-selecting .order-summary{padding-left:0}
+body[data-role=office] .order-summary:hover{background:#f7f9f4}
+body[data-role=office] .order-fold[open]>.order-summary{background:#fafbf8;border-bottom:1px solid var(--o-line-soft)}
+body[data-role=office] .carrier-badge{display:inline-block;margin:0;padding:3px 8px;border:1px solid #d3dccf;border-radius:6px;background:#f1f5ee;color:#204c3b;font-size:12px;font-weight:700;letter-spacing:.04em}
+body[data-role=office] .c-order{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+body[data-role=office] .c-order strong{font-size:15px;font-weight:700;overflow-wrap:anywhere}
+body[data-role=office] .new-order-badge{padding:2px 7px;border-radius:20px;background:#204c3b;color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+body[data-role=office] .shared-badge{padding:2px 7px;border-radius:20px;background:#e6ebe2;color:#204c3b;font-size:11px;font-weight:700}
+body[data-role=office] .c-cust{display:flex;flex-direction:column;gap:2px;min-width:0}
+body[data-role=office] .c-cust-line{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body[data-role=office] .c-cust small{font-size:12px;color:var(--o-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body[data-role=office] .c-colli,body[data-role=office] .c-weight{text-align:right}
+body[data-role=office] .c-weight{font-weight:600}
+body[data-role=office] .order-summary .summary-total{display:block}
+body[data-role=office] .order-summary .booking-controls{display:flex;flex-direction:row;align-items:center;flex-wrap:nowrap;gap:10px;margin:0;padding:0;border:0;background:transparent;min-height:0}
+body[data-role=office] .report-selecting .booking-controls{display:none}
+body[data-role=office] .booking-controls small{font-size:11px;color:#79550f;white-space:normal}
+body[data-role=office] .status-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}
+body[data-role=office] .status-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+body[data-role=office] .status-pill.open{background:#fbeed2;color:#6b4a0e}
+body[data-role=office] .status-pill.booked{background:#e1eedd;color:#1f5130}
+body[data-role=office] .order-summary .booking-controls .booking-toggle{min-height:0;height:32px;padding:0 12px;border:1px solid #204c3b;border-radius:8px;background:#204c3b;color:#fff;font-size:13px;font-weight:600;white-space:nowrap}
+body[data-role=office] .order-summary .booking-controls .booking-toggle.booked{background:#fff;border-color:#d3dccf;color:var(--o-muted)}
+body[data-role=office] .order-chevron{display:grid;place-items:center;color:var(--o-muted);font-size:0}
+body[data-role=office] .report-selecting .order-chevron{visibility:hidden;grid-column:auto;grid-row:auto}
+body[data-role=office] .report-selecting .summary-total{grid-column:auto}
+/* Udfoldet ordre */
+body[data-role=office] .order-body{display:grid;grid-template-columns:minmax(230px,280px) minmax(260px,.8fr) minmax(0,1.6fr);background:#fafbf8;border-bottom:1px solid var(--o-line-soft)}
+body[data-role=office] .order-info{padding:20px;background:transparent;border-right:1px solid var(--o-line-soft)}
+body[data-role=office] .order-info dl{margin:0 0 16px}
+body[data-role=office] .order-info dt{font-size:11px;font-weight:600;letter-spacing:.05em;color:var(--o-muted);margin:0 0 4px}
+body[data-role=office] .order-info dd{margin:0 0 14px;font-size:14px}
+body[data-role=office] .order-parcels{padding:20px;border-right:1px solid var(--o-line-soft);min-width:0}
+body[data-role=office] .order-parcels h3,body[data-role=office] .order-images h3{margin:0 0 10px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--o-muted)}
+body[data-role=office] .parcel-line{display:grid;grid-template-columns:62px 1fr auto;gap:12px;padding:7px 0;border-bottom:1px solid #e6ebe2;font-size:14px}
+body[data-role=office] .parcels-total{margin:10px 0 0;text-align:right;font-weight:700;font-size:14px}
+body[data-role=office] .order-images{padding:20px}
+body[data-role=office] .order-images .row{margin:0}
+body[data-role=office] .order-info button,body[data-role=office] .image-actions button,body[data-role=office] .order-history summary{min-height:0;height:34px;padding:0 12px;border:1px solid #d3dccf;border-radius:8px;background:#fff;color:#204c3b;font-size:13px;font-weight:600}
+body[data-role=office] .image-actions button.primary[aria-pressed=true]{background:#204c3b;color:#fff}
+body[data-role=office] .order-history{padding:10px 20px;background:#fafbf8;border-top:0;border-bottom:1px solid var(--o-line-soft)}
+body[data-role=office] .order-history summary{display:inline-flex;align-items:center}
+body[data-role=office] .history .order.card{border:1px solid var(--o-line);border-radius:10px;margin:10px 0}
+/* Valg af flere */
+body[data-role=office] .order.report-selecting{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:start;border-radius:0}
+body[data-role=office] .report-choice{width:44px;height:60px;margin-left:12px}
+body[data-role=office] .order.report-selected{background:#f1f6ec;border-color:var(--o-line-soft)}
+body[data-role=office] .selection-bar{position:sticky;bottom:16px;z-index:60;display:flex;flex-wrap:wrap;align-items:center;gap:10px;width:max-content;max-width:calc(100% - 32px);margin:16px auto 0;padding:10px 12px 10px 18px;border-radius:14px;background:#183f31;color:#e8f0e6;box-shadow:0 12px 32px #173e334d}
+body[data-role=office] .selection-bar strong{margin-right:6px;font-size:14px;font-variant-numeric:tabular-nums}
+body[data-role=office] .selection-bar button{min-height:0;height:36px;padding:0 14px;border:1px solid #e8f0e64d;border-radius:9px;background:transparent;color:#e8f0e6;font-size:14px;font-weight:600}
+body[data-role=office] .selection-bar button.primary{background:#d1e3b7;border-color:#d1e3b7;color:#183f31}
+body[data-role=office] .selection-bar button:disabled{opacity:.45}
+/* Tom tilstand og "Vis flere" */
+body[data-role=office] .office-empty{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0;padding:56px 24px;border:0;border-radius:0;text-align:center}
+body[data-role=office] .office-empty strong{font-size:17px}
+body[data-role=office] .office-empty p{margin:0;color:var(--o-muted)}
+body[data-role=office] .office-empty button{margin-top:8px;min-height:0;height:38px;padding:0 16px;border-radius:9px}
+body[data-role=office] .empty-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#e1eedd;color:#1f5130}
+body[data-role=office] #more{min-height:0;height:42px;margin-top:12px;border:1px solid var(--o-line);border-radius:10px;background:#fff;color:#204c3b;font-weight:600}
+body[data-role=office] .office-live-update{border-radius:10px;font-weight:600}
